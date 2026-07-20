@@ -1,0 +1,18 @@
+{
+  "name": "nunuawise",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm --workspace server run dev",
+    "dev:client": "npm --workspace client run dev",
+    "build": "npm --workspace server run build && npm --workspace client run build",
+    "start": "node server/dist/index.js",
+    "start:prod": "npm run build && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
